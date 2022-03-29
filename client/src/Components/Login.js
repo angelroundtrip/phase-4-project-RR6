@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Login({ onLogin }) {
+function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null)
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,17 +16,18 @@ function Login({ onLogin }) {
       body: JSON.stringify({ username, password}),
     })
       .then((r) => r.json())
-      .then((user) => onLogin(user));
-  }
-  const navigate = useNavigate();
-
-  function handleLoginClick() {
-    navigate("/home");
+      .then((user) => setUser(user))
   }
 
-  function handleLogoutClick() {
-    navigate("/");
-  }
+  // const navigate = useNavigate();
+
+  // function handleLoginClick() {
+  //   navigate("/home");
+  // }
+
+  // function handleLogoutClick() {
+  //   navigate("/");
+  // }
 
   return (
     <form onSubmit={handleSubmit}>
