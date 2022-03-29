@@ -7,7 +7,7 @@ function Login({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,7 +15,7 @@ function Login({ onLogin }) {
       body: JSON.stringify({ username, password}),
     })
       .then((r) => r.json())
-      .then((user) => onLogin(user));
+      .then((user) => console.log(user));
   }
   const navigate = useNavigate();
 

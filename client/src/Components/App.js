@@ -65,7 +65,7 @@ function App() {
   return (
 
   <div className="App">
-    {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('home') } /> }
+    {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> }
     <Routes>
         <Route path="/home" element={<Posts  handlePost= {handlePost } setUser={setUser}/>} />
 
