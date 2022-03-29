@@ -15,6 +15,8 @@ import LogOut from "./LogOut";
 // function App({onLogin}) {
 function App() {
   const [user, setUser] = useState(null)
+
+
   useEffect(()=>{
     fetch('/me')
       .then(r => {

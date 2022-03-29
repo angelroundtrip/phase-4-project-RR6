@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-function Login({ onLogin }) {
+function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/users", {
+    fetch(`/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,19 +16,34 @@ function Login({ onLogin }) {
       body: JSON.stringify({ username, password}),
     })
       .then((r) => r.json())
-      .then((user) => console.log(user));
-  }
-  const navigate = useNavigate();
+      .then((user) => setUser(user)
+      );
+        navigate(`/home`)}
+  
 
-  function handleLoginClick() {
-    navigate("/home");
+  const handleLogout = (e) => {
+    fetch(`/users`,{
+        method: 'DELETE',
+      })
+        .then(r => r.json())
+        .then(data => {
+          console.log(data)
+          // setUser(null)
+          // navigate('/')
+        })
   }
+  // const navigate = useNavigate();
 
-  function handleLogoutClick() {
-    navigate("/");
-  }
+  // function handleLoginClick() {
+  //   navigate("/home");
+  // }
+
+  // function handleLogoutClick() {
+  //   navigate("/");
+  // }
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <label htmlFor="username">Username:</label>
       <input
@@ -46,9 +62,13 @@ function Login({ onLogin }) {
       {/* <button onClick={handleLoginClick} type="submit">Login</button>
       <button onClick={handleLogoutClick} type="submit">Logout</button> */}
       <button type="submit">Login</button>
+      {/* <button type="submit">Logout</button> */}
+      </form>
+
+      <form onSubmit={handleLogout}>
       <button type="submit">Logout</button>
-      
-    </form>
+      </form>
+      </div>
   );
 }
 

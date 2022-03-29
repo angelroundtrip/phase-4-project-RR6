@@ -3,13 +3,10 @@ function LogOut({navigate, setUser}) {
     const handleClick = (e) => {
         fetch(`/users`,{
             method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify()
           })
             .then(r => r.json())
             .then(data => {
+              console.log(data)
               setUser(null)
               navigate('/')
             })
