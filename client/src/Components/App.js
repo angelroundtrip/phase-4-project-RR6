@@ -4,7 +4,8 @@ import LandingPage from "./LandingPage";
 import Login from "./Login";
 import Posts from "./Posts";
 import NavBar from "./NavBar";
-import User from "./User";
+// import User from "./User";
+import Home from "./Home";
 import Signup from "./Signup";
 import LogOut from "./LogOut";
 
@@ -69,14 +70,14 @@ function App() {
   <div className="App">
     {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> }
     <Routes>
-        <Route path="/home" element={<Posts  handlePost= {handlePost } setUser={setUser}/>} />
+        {/* <Route path="/home" element={<Posts  handlePost= {handlePost } setUser={setUser}/>} /> */}
 
         <Route path="/signup" element={<Signup  />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
         <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} />
         <Route path="/" element={<LandingPage/>}/>
-        <Route exact path="/me" element={<User user={user} setUser={setUser} />}/>
+        <Route exact path="/home" element={<Home user={user} setUser={setUser} />}/>
       </Routes>
   </div>
   );

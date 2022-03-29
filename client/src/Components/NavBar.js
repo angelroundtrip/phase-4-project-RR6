@@ -1,6 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
+// * Is working on login
 function NavBar() {
   return (
     <div className='navbar'>
@@ -8,7 +9,7 @@ function NavBar() {
         <button> Home 🏡 </button>
       </NavLink>
       
-      <NavLink to='/me'>
+      <NavLink to='/home'>
         <button> My Page 👤 </button>
       </NavLink>
       <NavLink to='/logout'>
