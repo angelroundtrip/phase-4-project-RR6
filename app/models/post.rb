@@ -2,6 +2,10 @@ class Post < ApplicationRecord
   belongs_to :user
 
   # def post_most_liked
-  #   Post.all.map{|p|p.likes}.maximum
+  #   self.all.map{|p|p.comments}
+  # end
+
+  # def all_posts
+  #   self.all
   # end
 end

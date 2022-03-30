@@ -5,7 +5,7 @@ function PostsContainer({posts, user}) {
 
   // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
   // * WE WANT EVERYONE'S USERNAME, PHOTO, COMMENTS, LIKES and profile url
-     
+   
 
     return (
      <div> 

@@ -32,7 +32,7 @@ function Posts({posts, setPosts, user, setUser}) {
        {/* <img alt = "profile pic" src= {image_url}>{image_url.img}</img> */}
        {/* <h5>$ {likes}{comments}</h5> */}
        
-       <h3 style={{color:'white'}}>{posts.comments}HELLO</h3>
+       <h3 style={{color:'blue'}}>{posts.comments}HELLO</h3>
        <PostsForm addPostToState={addPostToState} />
        {/* <Search changeSearchValue={changeSearchValue} /> */}
        <PostsContainer user={user}/>
