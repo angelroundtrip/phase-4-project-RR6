@@ -75,7 +75,7 @@ function App() {
         <Route path="/signup" element={<Signup setUser={setUser} />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
-        <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} />
+        {/* <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} /> */}
         <Route path="/" element={<LandingPage/>}/>
         <Route exact path="/posts" element={<Posts user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
       </Routes>
