@@ -13,4 +13,7 @@ User.create(username: "Test", bio: "1", password_digest: "1", pet_species: "Test
 # User.create( username: "ArgosTheDog", password_digest: "abc", bio: "I am a floppy dog that loves belly rubs, long walks, playing, and drum beats", pet_name: "Argos", pet_species: "Dog")
 
 
-Post.create(comments: nil, image_url: "https://files.slack.com/files-pri/T02MD9XTF-F0383CAJ6QP/image_from_ios.jpg", likes: 4, user_id: 1)
+Post.create(comments: 'This is a comment', image_url: "https://files.slack.com/files-pri/T02MD9XTF-F0383CAJ6QP/image_from_ios.jpg", likes: 4, user_id: 1)
+Post.create(comments: 'This is a SECOND comment', image_url: "https://files.slack.com/files-pri/T02MD9XTF-F0383CAJ6QP/image_from_ios.jpg", likes: 10, user_id: 1)
+
+puts "Seeding complete!"

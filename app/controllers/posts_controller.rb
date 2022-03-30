@@ -53,7 +53,7 @@
 class PostsController < ApplicationController
 
   def index
-    Post.all
+    render json: Post.all
   end
   
 end

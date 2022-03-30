@@ -1,10 +1,13 @@
-import PostsCard from './PostsCard'
+import Posts from './Posts'
+import react from 'react';
 
+function PostsContainer({posts}) {
 
-function PostsContainer({productions}) {
+   const allPosts= posts.map((post =>
+     <Posts  key={post.id} post={post} />));
     return (
      <div>
-         {/* <table>{productions.map(production => <PostsCard  key={production.id} production={production} />)}</table> */}
+         < Posts />
      </div>
     );
   }

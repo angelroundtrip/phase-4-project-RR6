@@ -1,18 +1,32 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 
-function NavBar() {
+// * Is working on login
+function NavBar({user, setUser}) {
+  // const navigate = useNavigate();
+  
+  const handleLogout = (e) => {
+    fetch("/logout", 
+      { method: "DELETE" })
+        .then((r) => {
+        if (r.ok) {
+          setUser(null);
+      }
+    });
+  }
+  
   return (
     <div className='navbar'>
       <NavLink exact to='/'>
         <button> Home 🏡 </button>
       </NavLink>
       
-      <NavLink to='/me'>
+      <NavLink to='/home'>
         <button> My Page 👤 </button>
       </NavLink>
-      <NavLink to='/logout'>
-        <button> Log Out ⚰️ </button>
+      <NavLink to='/'>
+        <button onClick={handleLogout}> Log Out </button>
+        
       </NavLink>
     </div>
   )

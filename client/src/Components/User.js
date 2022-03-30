@@ -1,5 +1,6 @@
 import React from 'react'
 
+// * Not doing anything right now
 function User({user}){
 console.log(user)
   return (

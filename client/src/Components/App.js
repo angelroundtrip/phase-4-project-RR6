@@ -4,9 +4,9 @@ import LandingPage from "./LandingPage";
 import Login from "./Login";
 import Posts from "./Posts";
 import NavBar from "./NavBar";
-import User from "./User";
 import Signup from "./Signup";
 import LogOut from "./LogOut";
+import PostsContainer from "./PostsContainer"
 
 // ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
 
@@ -15,6 +15,8 @@ import LogOut from "./LogOut";
 // function App({onLogin}) {
 function App() {
   const [user, setUser] = useState(null)
+
+
   useEffect(()=>{
     fetch('/me')
       .then(r => {
@@ -25,7 +27,7 @@ function App() {
   },[])
  
   // * NOTE: We need to redirect when a user signs up and logs in
-  const [posts, setPosts] = useState('')
+  const [posts, setPosts] = useState('') 
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [errors, setErrors] = useState(false)
@@ -65,16 +67,17 @@ function App() {
   return (
 
   <div className="App">
-    {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('home') } /> }
+    {user && <NavBar  setUser={setUser} user={user} />}
+    <PostsContainer  posts = { posts }/>  
+    {/* {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> } */}
     <Routes>
-        <Route path="/home" element={<Posts  handlePost= {handlePost } setUser={setUser}/>} />
-
-        <Route path="/signup" element={<Signup  />}/>
+    
+        <Route path="/signup" element={<Signup setUser={setUser} />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
         <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} />
         <Route path="/" element={<LandingPage/>}/>
-        <Route exact path="/me" element={<User user={user} setUser={setUser} />}/>
+        <Route exact path="/posts" element={<Posts user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
       </Routes>
   </div>
   );
