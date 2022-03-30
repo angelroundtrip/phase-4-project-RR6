@@ -62,12 +62,16 @@ function App() {
         }
       })}
 
+      function handleLogout() {
+        setUser(null);
+      }
+
     // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
   return (
 
   <div className="App">
-    {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') }/>}
+    {user && <NavBar  setUser={setUser} user={user} onLogout={handleLogout} />}
    
     {/* {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> } */}
     <Routes>

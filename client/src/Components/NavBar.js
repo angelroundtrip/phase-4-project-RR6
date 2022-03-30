@@ -2,11 +2,10 @@ import React from 'react'
 import {NavLink, useNavigate} from 'react-router-dom'
 
 // * Is working on login
-function NavBar({user, setUser}) {
+function NavBar({user, setUser, onLogout}) {
   // const navigate = useNavigate();
   // * March 30 code - Logout doesn't currently work
-  const handleLogout = (e) => {
-    e.preventDefault();
+  const handleLogoutClick = () => {
     fetch("/logout", 
       { method: "DELETE" })
         .then((r) => {
@@ -26,7 +25,7 @@ function NavBar({user, setUser}) {
         <button> My Page 👤 </button>
       </NavLink>
       <NavLink to='/'>
-        <button onClick={handleLogout}> Log Out </button>
+        <button onClick={handleLogoutClick}> Log Out </button>
         
       </NavLink>
     </div>
@@ -34,6 +33,7 @@ function NavBar({user, setUser}) {
 }
 
 export default NavBar
+
 
 
 

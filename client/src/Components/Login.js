@@ -10,7 +10,7 @@ function Login({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     // * THE ROUTE IS CAUSING NEW USERS TO BE CREATED. THE CURRENT ROUTE WORKS AND DOESN'T CREATE A NEW USER, THOUGH IT RETURNS AN ERROR IN THE CONSOLE
-    fetch(`/users/me`, {
+    fetch(`/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
