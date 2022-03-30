@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import Login from "./Login";
-import Posts from "./Posts";
+import PostsContainer from "./PostsContainer";
 import NavBar from "./NavBar";
 // import User from "./User";
 import Home from "./Home";
@@ -72,7 +72,10 @@ function App() {
     {/* {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> } */}
     <Routes>
         {/* <Route path="/home" element={<Posts  handlePost= {handlePost } setUser={setUser}/>} /> */}
-
+        {/* <Route exact path="/"> */}
+      {/* <PostsContainer posts={posts}/> */}
+      {/* </Route> */}
+      
         <Route path="/signup" element={<Signup setUser={setUser} />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />

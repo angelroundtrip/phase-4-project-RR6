@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
 
-function PostsCard({production}) {
-    const {title, budget, genre, image, id} = production
-    console.log(production)
+function PostsCard({post}) {
+    const {title, budget, genre, image, id} = post
+    console.log(post)
     return (
-      <Link to={`/productions/${id}`}>
+      <Link to={`/posts/${id}`}>
       <tr className="table-row" >
        <td>{title}</td>
        <td>{genre}</td>

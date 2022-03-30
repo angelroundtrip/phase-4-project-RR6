@@ -1,10 +1,10 @@
 import PostsCard from './PostsCard'
 
 
-function PostsContainer({productions}) {
+function PostsContainer({posts}) {
     return (
      <div>
-         {/* <table>{productions.map(production => <PostsCard  key={production.id} production={production} />)}</table> */}
+         <table>{posts.map(post => <PostsCard  key={post.id} production={post} />)}</table>
      </div>
     );
   }
