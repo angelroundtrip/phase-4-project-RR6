@@ -24,6 +24,7 @@ function Posts({posts, setPosts, user, setUser}) {
   //     .then( r => r.json() )
   //     .then( setPosts )
   // }, [])
+  // console.log(posts)
 
 
     return (
@@ -32,11 +33,14 @@ function Posts({posts, setPosts, user, setUser}) {
        {/* <h3> {user_id.username} This is {user_id.pet_name}'s page!</h3> */}
        {/* <img alt = "profile pic" src= {image_url}>{image_url.img}</img> */}
        {/* <h5>$ {likes}{comments}</h5> */}
+
+       <h3 style={{color:'blue'}}>Welcome  {user ? user.username : null} </h3> 
        
-       <h3 style={{color:'blue'}}>{posts.comments}HELLO</h3>
-       <PostsForm addPostToState={addPostToState} />
+       
+       {/* <PostsForm addPostToState={addPostToState} /> */}
        {/* <Search changeSearchValue={changeSearchValue} /> */}
-       <PostsContainer user={user} posts={posts}/>
+       {/* <PostsContainer user={user} posts={posts} /> */}
+       <h1>hello world</h1>
       
       </main>
      

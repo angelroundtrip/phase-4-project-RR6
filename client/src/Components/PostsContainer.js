@@ -1,7 +1,7 @@
 import Posts from './Posts'
 import React from "react";
 
-function PostsContainer({posts, user}) {
+function PostsContainer({posts, user, handlePost}) {
 
  
   // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
@@ -13,10 +13,9 @@ function PostsContainer({posts, user}) {
 
     return (
      <div> 
-       {/* {Posts.comments} */}
-         {/* { posts.map(post =>
-        <Posts  key={post.id} post={post} />)} */}
-        {/* <Posts /> */}
+
+        {/* {posts.map(post => <Posts  key={post.id} post={post} />)} */}
+        {user.username}
     </div>
          
    

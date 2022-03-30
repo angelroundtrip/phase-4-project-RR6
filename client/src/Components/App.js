@@ -6,6 +6,7 @@ import Posts from "./Posts";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 import LogOut from "./LogOut";
+import PostsContainer from "./PostsContainer";
 
 
 // ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
@@ -27,7 +28,7 @@ function App() {
   },[])
  
   // * NOTE: We need to redirect when a user signs up and logs in
-  const [posts, setPosts] = useState('') 
+  const [posts, setPosts] = useState([])
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [errors, setErrors] = useState(false)
@@ -41,7 +42,7 @@ function App() {
     }, [user])
     const navigate = useNavigate();
 
-
+// * WE NEED TO USE THIS or change it, this is why we can create posts when we click on Add New Petsagram post button, but they don't persist
     function handlePost(obj){
       fetch('/posts',{
         method:'POST',
@@ -81,6 +82,7 @@ function App() {
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
         {/* <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} /> */}
         <Route path="/" element={<LandingPage/>}/>
+        {/* <Route path="/posts" element={<PostsContainer posts={posts}/>}/> */}
         <Route exact path="/posts" element={<Posts user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
       </Routes>
   </div>

@@ -46,7 +46,7 @@
 
 #     # Only allow a list of trusted parameters through.
 #     def post_params
-#       params.require(:post).permit(:comments, :image_url, :likes, :user_id)
+#       params.require(:post).permit(:posts, :image_url, :likes, :user_id)
 #     end
 # end
 
@@ -56,16 +56,30 @@ class PostsController < ApplicationController
     render json: Post.all
   end
 
-  # def show
-  # end
+  def show
+    post = Post.find(params[:id])
+    render json: post, status: :ok
+  end
+
+  def update 
+    post = Post.find(params[:id])
+    post.update!(post_params)
+    render json: post, status: :ok
+  end
 
   def create
     Post.create!(post_params)
   end
 
+  def destroy 
+    post = Post.find(params[:id])
+    post.destroy
+    head :no_content
+  end
+
   private
   
   def post_params
-    params.permit(:image_url, :comments)
+    params.permit(:image_url, :posts, :user_id)
   end
 end

@@ -1,4 +1,5 @@
-import React, {useState, useNavigate}  from 'react'
+import React, {useState}  from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function Signup({setUser}) {
     const [username, setUsername] = useState('')
@@ -11,7 +12,7 @@ function Signup({setUser}) {
     const [profileImage, setProfileImage] = useState("");
     const handleUsername = (e) => setUsername(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
   
     function onSubmit(e){
         e.preventDefault()
@@ -32,12 +33,14 @@ function Signup({setUser}) {
           body:JSON.stringify(newUser)
         })
         .then(res => res.json())
-        .then(json => {
-            console.log(json)
-            if(json.errors) setErrors(Object.entries(json.errors))
-            })
-        // .then(setUser)
-            // ; navigate(`/home`)
+        .then(user => {
+            console.log(user)
+            if (!user.errors)  { 
+              navigate(`/posts`)
+            } else {
+            setErrors(Object.entries(user.errors))
+          }
+        })  
       }
       
     return (
