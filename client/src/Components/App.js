@@ -28,7 +28,7 @@ function App() {
   },[])
  
   // * NOTE: We need to redirect when a user signs up and logs in
-  const [posts, setPosts] = useState('')
+  const [posts, setPosts] = useState('') 
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [errors, setErrors] = useState(false)
