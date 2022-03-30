@@ -1,15 +1,17 @@
 import Posts from './Posts'
-
+import React from "react";
 
 function PostsContainer({posts}) {
 
-      posts.map((post =>
-     <Posts  key={post.id} post={post} />));
+     
 
     return (
-     <div>
-         < Posts  />
-     </div>
+     <div> 
+         { posts.map(post =>
+        <Posts  key={post.id} post={post} />)}
+    </div>
+         
+   
     );
   }
   

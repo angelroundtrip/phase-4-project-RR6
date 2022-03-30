@@ -6,7 +6,7 @@ import Posts from "./Posts";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 import LogOut from "./LogOut";
-import PostsContainer from "./PostsContainer"
+
 
 // ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
 
@@ -68,7 +68,7 @@ function App() {
 
   <div className="App">
     {user && <NavBar  setUser={setUser} user={user} />}
-    <PostsContainer  posts = { posts }/>  
+   
     {/* {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> } */}
     <Routes>
     

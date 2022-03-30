@@ -1,65 +1,38 @@
 import React, { useState} from 'react'
 
-function PostsForm({handlePost, errors}) {
-  const [formData, setFormData] = useState({
-    title:'',
-    genre:'',
-    budget:'',
-    image:'',
-    director:'',
-    description:''
-  })
+function PostsForm({ errors, addPostToState}) {
+  
+  const [username, setUsername] = useState("")
+  const [imageURL, setImageURL] =useState("")
+  const [likes, setLikes] = useState (0)
 
-
-  function onSubmit(e){
+  const createPost = (e) => {
     e.preventDefault()
-    const production = {
-      title: formData.title,
-      genre: formData.genre,
-      budget: formData.budget,
-      image: formData.image,
-      director: formData.director,
-      description: formData.description,
-      ongoing:true
-    }
-    console.log(production)
-    handlePost(production)
+
+   const newPost= {username, imageURL, likes}
+    addPostToState( newPost)
+    console.log(newPost)
   }
+  
     return (
       <div className="App">
         {errors?errors.map(e => <div>{e}</div>):null}
-       <form onSubmit={onSubmit}>
+       <form onSubmit={createPost}>
        <label>
-          Title
-          <input type="text" name="title" value={formData.title} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
+          Username
+          <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} />
         </label>
         <br/>
         <label>
-        Genre
-          <input type="text" name="genre" value={formData.genre} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
+        Image URL (grab a url of your fave pet image!)
+          <input type="text" name="image_url" onChange={(e) => setImageURL(e.target.value)} />
         </label>
         <br/>
         <label>
-        Budget
-          <input type="number" name="budget" value={formData.budget} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
+        Likes
+          <input type="number" name="likes"  onChange={(e) => setLikes(e.target.value)} />
         </label>
-        <br/>
-        <label>
-        Image
-          <input type="text" name="image" value={formData.image} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
-        </label>
-        <br/>
-        <label>
-        Director
-          <input type="text" name="director" value={formData.director} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
-        </label>
-        <br/>
-        <label>
-        Description
-          <textarea type="text" name="description" rows="4" cols="50" value={formData.description} onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})} />
-        </label>
-        <br/>
-        <input type="submit" value="Submit Production" />
+        <button type="submit"> Add New Petsagram Post </button>
        </form>
       </div>
     );
