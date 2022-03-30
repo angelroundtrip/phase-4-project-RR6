@@ -6,6 +6,6 @@ class Post < ApplicationRecord
   # end
 
   # def all_posts
-  #   self.all
+  #   Post.all
   # end
 end

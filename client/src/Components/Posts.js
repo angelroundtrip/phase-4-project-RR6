@@ -10,8 +10,9 @@ function Posts({posts, setPosts, user, setUser}) {
   // const changeSearchValue = e => setSearchValue(e.target.value )
   // const { comments, image_url, likes, user_id} = post
   
-  console.log(posts)
-  console.log(user)
+  // console.log(posts)
+  // console.log(user)
+
   // const searchedPosts = posts.filter(post => {
   //   const lowerName = post.name.toLowerCase()
   //   const lowerSearch = searchValue.toLowerCase()
@@ -35,7 +36,7 @@ function Posts({posts, setPosts, user, setUser}) {
        <h3 style={{color:'blue'}}>{posts.comments}HELLO</h3>
        <PostsForm addPostToState={addPostToState} />
        {/* <Search changeSearchValue={changeSearchValue} /> */}
-       <PostsContainer user={user}/>
+       <PostsContainer user={user} posts={posts}/>
       
       </main>
      

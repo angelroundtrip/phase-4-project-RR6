@@ -55,5 +55,17 @@ class PostsController < ApplicationController
   def index
     render json: Post.all
   end
+
+  # def show
+  # end
+
+  def create
+    Post.create!(post_params)
+  end
+
+  private
   
+  def post_params
+    params.permit(:image_url, :comments)
+  end
 end
