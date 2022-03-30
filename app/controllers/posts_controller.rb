@@ -51,10 +51,9 @@
 # end
 
 class PostsController < ApplicationController
-  belongs_to :user
 
   def index
-    Post.all
+    render json: Post.all
   end
   
 end
