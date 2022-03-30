@@ -51,34 +51,24 @@
 # end
 
 class UsersController < ApplicationController
-  # skip_before_action :authorize, only: [:create]
 
+  skip_before_action :authorize, only: [:create]
+
+  # GET /users
   def index
-    render json: User.all
+    @users = User.all
+
+    render json: @users
   end
 
-  # def show
-  #   render json: User.find_by(id: session[:user_id]), status: :ok
-  # end
-  # def show
-  #   render json: @current_user
-  # end
-  # def show
-  #   currentUser = User.find(session[:user_id])
-  #   render json: currentUser, status: :ok
-  # end
-  def show
-    user = User.find_by(id: session[:user_id])
-    if user
-      render json: user
-    else
-      render json: { error: "Not authorized" }, status: :unauthorized
-    end
-  end
-  
-  # POST signup
   def create
-    render json: User.create!(user_params), status: :created
+      user = User.create!(user_params)
+      session[:user_id] = user.id
+      render json: user, status: :created
+  end
+
+  def show
+      render json: @current_user
   end
 
   private

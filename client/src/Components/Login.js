@@ -1,37 +1,38 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`/login`, {
+    fetch(`/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password}),
+      body: JSON.stringify({ username, password, passwordConfirmation }),
     })
       .then((r) => r.json())
-      .then((user) => setUser(user)
-      );
-        navigate(`/home`)}
+      .then((user) => setUser(user));
+        navigate(`/home`)
+      }
   
 
-  const handleLogout = (e) => {
-    fetch(`/users`,{
-        method: 'DELETE',
-      })
-        .then(r => r.json())
-        .then(data => {
-          console.log(data)
-          // setUser(null)
-          // navigate('/')
-        })
-  }
+  // const handleLogout = (e) => {
+  //   fetch(`/users`,{
+  //       method: 'DELETE',
+  //     })
+  //       .then(r => r.json())
+  //       .then(data => {
+  //         console.log(data)
+  //         // setUser(null)
+  //       })
+  //       navigate('/')
+  // }
   // const navigate = useNavigate();
 
   // function handleLoginClick() {
@@ -45,29 +46,38 @@ function Login({ setUser }) {
   return (
     <div>
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      {/* <button onClick={handleLoginClick} type="submit">Login</button>
-      <button onClick={handleLogoutClick} type="submit">Logout</button> */}
-      <button type="submit">Login</button>
-      {/* <button type="submit">Logout</button> */}
-      </form>
 
-      <form onSubmit={handleLogout}>
-      <button type="submit">Logout</button>
-      </form>
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          />
+
+        <label htmlFor="password_confirmation">Confirm Password:</label>
+        <input
+        type="password"
+        id="password_confirmation"
+        value={passwordConfirmation}
+        onChange={(e) => setPasswordConfirmation(e.target.value)}
+        />
+    
+        <button type="submit">Login</button>
+        {/* <button type="submit">Logout</button> */}
+        </form>
+
+        {/* <form onSubmit={handleLogout}>
+        <button type="submit">Logout</button>
+        </form> */}
       </div>
   );
 }

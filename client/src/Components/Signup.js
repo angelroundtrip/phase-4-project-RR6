@@ -1,17 +1,17 @@
 import React, {useState, useNavigate}  from 'react'
 
-function Signup() {
+function Signup({setUser}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
-    const handleUsername = (e) => setUsername(e.target.value)
-    const handlePassword = (e) => setPassword(e.target.value)
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [petName, setPetName] = useState("");
     const [petSpecies, setPetSpecies] = useState("");
     const [bio, setBio] = useState("");
     const [profileImage, setProfileImage] = useState("");
-    
+    const handleUsername = (e) => setUsername(e.target.value)
+    const handlePassword = (e) => setPassword(e.target.value)
+    // const navigate = useNavigate();
   
     function onSubmit(e){
         e.preventDefault()
@@ -26,7 +26,7 @@ function Signup() {
         }
         console.log(newUser)
        
-        fetch(`/users`,{
+        fetch(`/signup`,{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify(newUser)
@@ -35,8 +35,9 @@ function Signup() {
         .then(json => {
             console.log(json)
             if(json.errors) setErrors(Object.entries(json.errors))
-            
-        })
+            })
+        // .then(setUser)
+            // ; navigate(`/home`)
       }
       
     return (
@@ -96,6 +97,7 @@ function Signup() {
         />
         
           <input type="submit" value="Sign up!" />
+          {/* <button type="submit">Sign up</button> */}
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>
