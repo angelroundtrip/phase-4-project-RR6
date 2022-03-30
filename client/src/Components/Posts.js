@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-function Posts({post}) {
+function Posts({post, allPosts}) {
     const { comments, image_url, likes, user_id} = post
     console.log(post)
     return (
