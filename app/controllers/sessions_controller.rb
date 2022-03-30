@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-
-class SessionsController < ApplicationController
-  skip_before_action :authorize, only: [:create]
-  
-    def create
-        user = User.find_by(name:params[:username])
-        if user&.authenticate(params[:password])
-            session[:user_id] = user.id
-            render json: user, status: :ok 
-        else 
-            render json: {error: "Invalid Password or Username"}, status: :unprocessable_entity
-        end 
-      end 
-     
-  
-    def destroy
-      session.delete :current_user
-      head :no_content
-    end
-  end
-=======
 # class SessionsController < ApplicationController
 #   before_action :set_session, only: %i[ show update destroy ]
 
@@ -91,4 +69,3 @@ class SessionsController < ApplicationController
       head :no_content
   end
 end
->>>>>>> main
