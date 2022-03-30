@@ -4,8 +4,9 @@ import {NavLink, useNavigate} from 'react-router-dom'
 // * Is working on login
 function NavBar({user, setUser}) {
   // const navigate = useNavigate();
-  
+  // * March 30 code - Logout doesn't currently work
   const handleLogout = (e) => {
+    e.preventDefault();
     fetch("/logout", 
       { method: "DELETE" })
         .then((r) => {

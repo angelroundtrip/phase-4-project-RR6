@@ -9,7 +9,7 @@ function PostsContainer({posts, user}) {
 
     return (
      <div> 
-       {Posts.comments}
+       {/* {Posts.comments} */}
          {/* { posts.map(post =>
         <Posts  key={post.id} post={post} />)} */}
     </div>

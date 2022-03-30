@@ -11,6 +11,7 @@ function Posts({posts, setPosts, user, setUser}) {
   // const { comments, image_url, likes, user_id} = post
   
   console.log(posts)
+  console.log(user)
   // const searchedPosts = posts.filter(post => {
   //   const lowerName = post.name.toLowerCase()
   //   const lowerSearch = searchValue.toLowerCase()
@@ -30,7 +31,8 @@ function Posts({posts, setPosts, user, setUser}) {
        {/* <h3> {user_id.username} This is {user_id.pet_name}'s page!</h3> */}
        {/* <img alt = "profile pic" src= {image_url}>{image_url.img}</img> */}
        {/* <h5>$ {likes}{comments}</h5> */}
-       <h3>{posts.comments}</h3>
+       
+       <h3 style={{color:'white'}}>{posts.comments}HELLO</h3>
        <PostsForm addPostToState={addPostToState} />
        {/* <Search changeSearchValue={changeSearchValue} /> */}
        <PostsContainer user={user}/>
