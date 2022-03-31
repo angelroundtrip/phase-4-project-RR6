@@ -16,24 +16,24 @@ function NavBar({user, setUser, onLogout}) {
     });
   }
 
-  // * not working yet
+  // * WORKS, kind of!
   const handleUpdateUserClick = () => {
-    fetch(`http://localhost:3000/users/${user.id}`, {
+    fetch(`http://localhost:4000/users/${user.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        isUser: !user.isUser,
+        username: !user
       }),
     })
       .then((r) => r.json())
-      .then((user) => setUser(user));
+      .then(user => setUser(user));
   }
 
-  // * not working yet
+  // * WORKS, kind of!
   const handleDeleteClick = () => {
-      fetch(`http://localhost:3000/users/${user.id}`,{
+      fetch(`http://localhost:4000/users/${user.id}`,{
         method:"DELETE",
       })
       .then((r) => r.json())
@@ -42,9 +42,9 @@ function NavBar({user, setUser, onLogout}) {
   
   return (
     <div className='navbar'>
-       {/* <NavLink exact to='/'> */}
+       <NavLink exact to='/signup'>
         <button style={{float: 'right'}} onClick={handleUpdateUserClick}> Update Account </button>
-      {/* </NavLink> */}
+      </NavLink>
       
       <NavLink to='/'>
         <button style={{float: 'right'}} onClick={handleDeleteClick}> Delete Account  </button>

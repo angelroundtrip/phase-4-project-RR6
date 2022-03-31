@@ -41,7 +41,7 @@ test = User.create(username: "Test", bio: "1", password: "1", pet_species: "Test
 argos = User.create( profile_image_url: "../images/ArgosProfile.heic", username: "ArgosTheDog", password: "abc", bio: "I am a floppy dog that loves belly rubs, long walks, playing, and drum beats", pet_name: "Argos", pet_species: "Dog")
 
 
-#* POSTS - IMAGES are not appearing in console log.
+#* POSTS 
 Post.create(comments: "This comment works", likes: 3, user_id: lala.id, image_url: "../images/LaraEating.jpg" )
 Post.create(comments: "handsome", likes: 3, user_id: argos.id, image_url: "../images/ArgosPup.heic")
 Post.create(comments: 'How do I look at this angle?', image_url: "../images/SnowflakeCloseup.jpg", likes: 4, user_id: snow.id)
