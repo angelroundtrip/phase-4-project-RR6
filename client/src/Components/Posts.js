@@ -14,6 +14,7 @@ function Posts({posts, setPosts, user, setUser}) {
   // * Mapping here, even in the console, breaks the page. Have to refresh to see content after logging in
   // console.log(posts.map(post => post.comments))
   // console.log(user.username.posts)
+  console.log(user)
   console.log(posts)
 
   // const searchedPosts = posts.filter(post => {
@@ -40,7 +41,11 @@ function Posts({posts, setPosts, user, setUser}) {
 
        <Card style={{color:'blue'}}> POST 1 {user ? user.posts : null} </Card> 
        <Card style={{color:'blue'}}> POST 2 {user ? user.posts : null} </Card> 
+
        
+       {user ? <Card> <h3>@nekolover</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
+       
+       {user ? <Card> <h3>@neko</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
 
