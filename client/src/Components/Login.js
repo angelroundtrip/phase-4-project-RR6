@@ -15,7 +15,7 @@ function Login({ setUser }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password, passwordConfirmation }),
+      body: JSON.stringify({ username, password}),
     })
       .then((r) => r.json())
       .then((user) => setUser(user));
@@ -64,13 +64,13 @@ function Login({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
           />
 
-        <label htmlFor="password_confirmation">Confirm Password:</label>
+        {/* <label htmlFor="password_confirmation">Confirm Password:</label>
         <input
         type="password"
         id="password_confirmation"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
+        /> */}
     
         <button type="submit">Login</button>
         {/* <button type="submit">Logout</button> */}

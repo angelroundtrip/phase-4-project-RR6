@@ -2,14 +2,14 @@ import React, { useState} from 'react'
 
 function PostsForm({ errors, addPostToState}) {
   
-  const [imageURL, setImageURL] =useState("")
+  const [image_url, setImageURL] =useState("")
   const [comments, setComments] = useState("")
   const [likes, setLikes] = useState (0)
 
   const createPost = (e) => {
     e.preventDefault()
 
-   const newPost= {comments, imageURL, likes}
+   const newPost= {comments, image_url, likes}
     addPostToState( newPost)
     console.log(newPost)
   }

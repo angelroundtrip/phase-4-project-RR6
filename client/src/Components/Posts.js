@@ -35,8 +35,8 @@ function Posts({posts, setPosts, user, setUser}) {
     
       <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
 
-       <h3 style={{color:'blue'}}>Hello, {user ? user.username : null}! </h3> 
-       <h1>Hello World</h1>
+       <h3 style={{color:'blue'}}>Welcome  {user ? user.username : null} </h3> 
+       {/* <img src={user ? user.post.image_url : null } alt="pic"/> */}
        
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
