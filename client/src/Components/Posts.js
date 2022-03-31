@@ -35,6 +35,7 @@ function Posts({posts, setPosts, user, setUser}) {
        {/* <h5>$ {likes}{comments}</h5> */}
 
        <h3 style={{color:'blue'}}>Welcome  {user ? user.username : null} </h3> 
+       {/* <img src={user ? user.post.image_url : null } alt="pic"/> */}
        
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
