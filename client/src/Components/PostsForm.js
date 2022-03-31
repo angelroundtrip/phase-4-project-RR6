@@ -39,3 +39,4 @@ function PostsForm({ errors, addPostToState}) {
   }
   
   export default PostsForm;
+  
