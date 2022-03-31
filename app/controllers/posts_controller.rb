@@ -68,7 +68,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create!(post_params)
+ 
+    newPost = Post.new(post_params)
+    newPost.likes= 0
+    newPost.user_id = @current_user.id
+    newPost.save
+    render json: newPost, status: :created
+
   end
 
   def destroy 
@@ -80,6 +86,6 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.permit(:image_url, :posts, :user_id)
+    params.permit(:image_url, :comments)
   end
 end
