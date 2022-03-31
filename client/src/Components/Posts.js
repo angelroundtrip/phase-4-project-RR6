@@ -40,7 +40,7 @@ function Posts({posts, setPosts, user, setUser}) {
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
        {/* <Search changeSearchValue={changeSearchValue} /> */}
-       {/* <PostsContainer user={user} posts={posts} /> */}
+       <PostsContainer user={user} posts={posts} setPosts={setPosts} />
        <h1>hello world</h1>
       
       </main>
