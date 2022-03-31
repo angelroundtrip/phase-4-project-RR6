@@ -10,8 +10,8 @@ function Posts({posts, setPosts, user, setUser}) {
   // const changeSearchValue = e => setSearchValue(e.target.value )
   // const { comments, image_url, likes, user_id} = post
   
-  // console.log(posts)
-  // console.log(user)
+  console.log(posts)
+  console.log(user)
 
   // const searchedPosts = posts.filter(post => {
   //   const lowerName = post.name.toLowerCase()
@@ -30,11 +30,9 @@ function Posts({posts, setPosts, user, setUser}) {
     return (
     <main>
     
-       {/* <h3> {user_id.username} This is {user_id.pet_name}'s page!</h3> */}
-       {/* <img alt = "profile pic" src= {image_url}>{image_url.img}</img> */}
-       {/* <h5>$ {likes}{comments}</h5> */}
+      <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
 
-       <h3 style={{color:'blue'}}>Welcome  {user ? user.username : null} </h3> 
+       <h3 style={{color:'blue'}}>Hello, {user ? user.username : null}! </h3> 
        
        
        {/* <PostsForm addPostToState={addPostToState} /> */}

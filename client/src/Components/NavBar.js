@@ -17,15 +17,15 @@ function NavBar({user, setUser, onLogout}) {
   
   return (
     <div className='navbar'>
-      <NavLink exact to='/'>
+      {/* <NavLink exact to='/'>
         <button> Home 🏡 </button>
       </NavLink>
       
       <NavLink to='/home'>
         <button> My Page 👤 </button>
-      </NavLink>
+      </NavLink> */}
       <NavLink to='/'>
-        <button onClick={handleLogoutClick}> Log Out </button>
+        <button style={{float: 'right'}} onClick={handleLogoutClick}> {user ? user.username : null} | Log Out </button>
         
       </NavLink>
     </div>

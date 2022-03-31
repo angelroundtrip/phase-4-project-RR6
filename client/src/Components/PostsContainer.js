@@ -1,25 +1,25 @@
-import Posts from './Posts'
-import React from "react";
+// import Posts from './Posts'
+// import React from "react";
 
-function PostsContainer({posts, user, handlePost}) {
+// function PostsContainer({posts, user, handlePost}) {
 
  
-  // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
-  // * WE WANT EVERYONE'S USERNAME, PHOTO, COMMENTS, LIKES and profile url
+//   // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
+//   // * WE WANT EVERYONE'S USERNAME, PHOTO, COMMENTS, LIKES and profile url
    
-  console.log(posts)
-  console.log(user)
+//   console.log(posts)
+//   console.log(user)
 
 
-    return (
-     <div> 
+//     return (
+//      <div> 
 
-        {/* {posts.map(post => <Posts  key={post.id} post={post} />)} */}
-        {user.username}
-    </div>
+//         {/* {posts.map(post => <Posts  key={post.id} post={post} />)} */}
+//         {user.username}
+//     </div>
          
    
-    );
-  }
+//     );
+//   }
   
-  export default PostsContainer;
+//   export default PostsContainer;
