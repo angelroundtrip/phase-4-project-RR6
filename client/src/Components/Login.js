@@ -10,17 +10,20 @@ function Login({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     // * THE ROUTE IS CAUSING NEW USERS TO BE CREATED. THE CURRENT ROUTE WORKS AND DOESN'T CREATE A NEW USER, THOUGH IT RETURNS AN ERROR IN THE CONSOLE
-    fetch(`/users`, {
+    fetch(`/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password, passwordConfirmation }),
+      body: JSON.stringify({ username, password}),
     })
       .then((r) => r.json())
-      .then((user) => setUser(user));
+      .then((user) => {
+        console.log(user)
+        setUser(user);
         navigate(`/posts`)
-      }
+      })
+  }
   
 
   // const handleLogout = (e) => {
@@ -63,14 +66,6 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           />
-
-        <label htmlFor="password_confirmation">Confirm Password:</label>
-        <input
-        type="password"
-        id="password_confirmation"
-        value={passwordConfirmation}
-        onChange={(e) => setPasswordConfirmation(e.target.value)}
-        />
     
         <button type="submit">Login</button>
         {/* <button type="submit">Logout</button> */}
