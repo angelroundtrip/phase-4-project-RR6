@@ -1,7 +1,8 @@
+import React, {useEffect, useState} from "react";
 // import {Link} from "react-router-dom";
 import PostsForm from './PostsForm'
 import PostsContainer from "./PostsContainer";
-import React, {useEffect, useState} from "react";
+import { Card } from "semantic-ui-react";
 
 function Posts({posts, setPosts, user, setUser}) {
   // const [posts, setPosts] = useState([])
@@ -10,7 +11,8 @@ function Posts({posts, setPosts, user, setUser}) {
   // const changeSearchValue = e => setSearchValue(e.target.value )
   // const { comments, image_url, likes, user_id} = post
   
-  console.log(posts)
+  // * Mapping here, even in the console, breaks the page. Have to refresh to see content after logging in
+  // console.log(posts.map(post => post.comments))
   console.log(user)
 
   // const searchedPosts = posts.filter(post => {
@@ -33,12 +35,16 @@ function Posts({posts, setPosts, user, setUser}) {
       <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
 
        <h3 style={{color:'blue'}}>Hello, {user ? user.username : null}! </h3> 
+       <h1>Hello World</h1>
        
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
        {/* <Search changeSearchValue={changeSearchValue} /> */}
        {/* <PostsContainer user={user} posts={posts} /> */}
-       <h1>hello world</h1>
+
+        {/* <h1>{user ? posts.map(post => post.comments): null}</h1> */}
+        
+       
       
       </main>
      
