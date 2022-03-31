@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import Signup from "./Signup";
 import LogOut from "./LogOut";
 import PostsContainer from "./PostsContainer";
+import UserUpdateForm from "./UserUpdateForm";
 
 
 // ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
@@ -87,7 +88,8 @@ function App() {
         {/* <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} /> */}
         <Route path="/" element={<LandingPage/>}/>
         {/* <Route path="/posts" element={<PostsContainer posts={posts}/>}/> */}
-        <Route exact path="/posts" element={<Posts user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
+        <Route  path="/posts" element={<Posts errors={errors} user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
+        <Route  path="/update" element={<UserUpdateForm user={user} setUser={setUser} errors={errors} />} />
       </Routes>
   </div>
   );

@@ -20,7 +20,7 @@ function PostsContainer({posts, user, handlePost, setPosts}) {
     </div>
          
    
-//     );
-//   }
+    );
+  }
   
-//   export default PostsContainer;
+  export default PostsContainer;

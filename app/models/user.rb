@@ -3,5 +3,6 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :username, presence: true, uniqueness: true
-  validates :password, :password_confirmation, :pet_name, :pet_species, :profile_image_url, presence:true
+  validates  :pet_name, :pet_species, :profile_image_url, presence:true
+  validates :password, {presence: true, on: :create}
 end

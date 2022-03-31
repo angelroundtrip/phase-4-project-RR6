@@ -42,8 +42,8 @@ function NavBar({user, setUser, onLogout}) {
   
   return (
     <div className='navbar'>
-       <NavLink exact to='/signup'>
-        <button style={{float: 'right'}} onClick={handleUpdateUserClick}> Update Account </button>
+       <NavLink exact to='/update'>
+        <button style={{float: 'right'}} > Update Account </button>
       </NavLink>
       
       <NavLink to='/'>

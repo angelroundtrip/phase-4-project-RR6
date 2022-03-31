@@ -48,7 +48,7 @@ function PostsForm({ errors, posts, setPosts}) {
         {errors?errors.map(e => <div>{e}</div>):null}
        <form onSubmit={handleSubmitNewPost}>
         <label>
-        Image URL (grab a url of your fave pet image!)
+            Image URL (grab a url of your fave pet image!)
           <input type="text" name="image_url" value={image_url} onChange={handleURL} />
         </label>
         <br/>
@@ -62,7 +62,7 @@ function PostsForm({ errors, posts, setPosts}) {
         Likes
           <input type="number" name="likes"  onChange={(e) => setLikes(e.target.value)} />
         </label> */}
-        <button type="submit"> Add New Petsagram Post </button>
+        <button type="submit">     Add New Petsagram Post </button>
        </form>
       </div>
     );
