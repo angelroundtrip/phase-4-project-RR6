@@ -68,7 +68,11 @@ function App() {
       }
 
     // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
-
+    
+    // const deleteAccountClick = (id) => {
+    //   fetch(API + id,{
+    //     method:"DELETE",
+    //   })}
   return (
 
   <div className="App">

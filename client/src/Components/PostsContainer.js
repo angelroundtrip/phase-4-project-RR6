@@ -5,11 +5,11 @@ import PostsForm from './PostsForm';
 function PostsContainer({posts, user, handlePost, setPosts}) {
 
  
-  // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
-  // * WE WANT EVERYONE'S USERNAME, PHOTO, COMMENTS, LIKES and profile url
+//   // * WE'RE GETTING EVERYONE'S POSTS RIGHT NOW
+//   // * WE WANT EVERYONE'S USERNAME, PHOTO, COMMENTS, LIKES and profile url
    
-  console.log(posts)
-  console.log(user)
+//   console.log(posts)
+//   console.log(user)
 
 
     return (
@@ -20,7 +20,7 @@ function PostsContainer({posts, user, handlePost, setPosts}) {
     </div>
          
    
-    );
-  }
+//     );
+//   }
   
-  export default PostsContainer;
+//   export default PostsContainer;

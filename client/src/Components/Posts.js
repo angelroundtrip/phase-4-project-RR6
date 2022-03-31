@@ -1,7 +1,8 @@
+import React, {useEffect, useState} from "react";
 // import {Link} from "react-router-dom";
 import PostsForm from './PostsForm'
 import PostsContainer from "./PostsContainer";
-import React, {useEffect, useState} from "react";
+import { Card, Button,Image } from "semantic-ui-react";
 
 function Posts({posts, setPosts, user, setUser}) {
   // const [posts, setPosts] = useState([])
@@ -10,8 +11,11 @@ function Posts({posts, setPosts, user, setUser}) {
   // const changeSearchValue = e => setSearchValue(e.target.value )
   // const { comments, image_url, likes, user_id} = post
   
-  // console.log(posts)
-  // console.log(user)
+  // * Mapping here, even in the console, breaks the page. Have to refresh to see content after logging in
+  // console.log(posts.map(post => post.comments))
+  // console.log(user.username.posts)
+  console.log(user)
+  console.log(posts)
 
   // const searchedPosts = posts.filter(post => {
   //   const lowerName = post.name.toLowerCase()
@@ -30,18 +34,31 @@ function Posts({posts, setPosts, user, setUser}) {
     return (
     <main>
     
-       {/* <h3> {user_id.username} This is {user_id.pet_name}'s page!</h3> */}
-       {/* <img alt = "profile pic" src= {image_url}>{image_url.img}</img> */}
-       {/* <h5>$ {likes}{comments}</h5> */}
+      <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
 
-       <h3 style={{color:'blue'}}>Welcome  {user ? user.username : null} </h3> 
+       <h3 style={{color:'blue'}}>Hi  {user ? user.username : null}! </h3> 
        {/* <img src={user ? user.post.image_url : null } alt="pic"/> */}
+
+       <Card style={{color:'blue'}}> POST 1 {user ? user.posts : null} </Card> 
+       <Card style={{color:'blue'}}> POST 2 {user ? user.posts : null} </Card> 
+
        
+       {user ? <Card> <h3>@nekolover</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
+       
+       {user ? <Card> <h3>@neko</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
+
+
+
        {/* <Search changeSearchValue={changeSearchValue} /> */}
-       <PostsContainer user={user} posts={posts} setPosts={setPosts} />
-       <h1>hello world</h1>
+       {/* <PostsContainer user={user} posts={posts} /> */}
+
+        {/* <h1>{user ? posts.map(post => post.comments): null}</h1> */}
+        
+       
+
+        
       
       </main>
      

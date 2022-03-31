@@ -69,3 +69,4 @@ function PostsForm({ errors, posts, setPosts}) {
   }
   
   export default PostsForm;
+  
