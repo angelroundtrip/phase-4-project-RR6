@@ -7,7 +7,7 @@ import { Card, Button,Image } from "semantic-ui-react";
 function Posts({posts, setPosts, user, setUser}) {
   // const [posts, setPosts] = useState([])
   // const [searchValue, setSearchValue] = useState('')
-  const addPostToState = post => setPosts( [post, ...posts] )
+  // const addPostToState = post => setPosts( [post, ...posts] )
   // const changeSearchValue = e => setSearchValue(e.target.value )
   // const { comments, image_url, likes, user_id} = post
   
@@ -47,7 +47,7 @@ function Posts({posts, setPosts, user, setUser}) {
        
        {user ? <Card> <h3 style={{textAlign:'center'}}>@nekolover</h3> <Image  className="center" style={{align:'center'}} src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3 style={{textAlign:'center'}}>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        
-       {user ? <Card> <h3>@neko</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
+       {user ? <Card> <h3>@neko</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3>   </Card> : null} 
        
        {/* <PostsForm addPostToState={addPostToState} /> */}
 
