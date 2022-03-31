@@ -36,14 +36,16 @@ function Posts({posts, setPosts, user, setUser}) {
     
       <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
 
-       <h3 style={{color:'blue'}}>Hi  {user ? user.username : null}! </h3> 
+      <hr></hr>
+       <h3 style={{color:'blue', textAlign:'center'}}>  {user ? user.username : 'Please login!'} </h3> 
        {/* <img src={user ? user.post.image_url : null } alt="pic"/> */}
+       <hr></hr>
 
-       <Card style={{color:'blue'}}> POST 1 {user ? user.posts : null} </Card> 
-       <Card style={{color:'blue'}}> POST 2 {user ? user.posts : null} </Card> 
+       {/* <Card style={{color:'blue'}}> POST 1 {user ? user.posts : null} </Card> 
+       <Card style={{color:'blue'}}> POST 2 {user ? user.posts : null} </Card>  */}
 
        
-       {user ? <Card> <h3>@nekolover</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
+       {user ? <Card> <h3 style={{textAlign:'center'}}>@nekolover</h3> <Image  className="center" style={{align:'center'}} src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3 style={{textAlign:'center'}}>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        
        {user ? <Card> <h3>@neko</h3> <Image  src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        

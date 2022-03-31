@@ -16,28 +16,42 @@ function NavBar({user, setUser, onLogout}) {
     });
   }
 
-  // * need PATCH
+  // * not working yet
+  const handleUpdateUserClick = () => {
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        isUser: !user.isUser,
+      }),
+    })
+      .then((r) => r.json())
+      .then((user) => setUser(user));
+  }
 
-  function handleDeleteClick() {
+  // * not working yet
+  const handleDeleteClick = () => {
       fetch(`http://localhost:3000/users/${user.id}`,{
         method:"DELETE",
       })
       .then((r) => r.json())
-      .then(user);
+      .then(setUser);
   }
   
   return (
     <div className='navbar'>
-       <NavLink exact to='/'>
-        <button style={{float: 'right'}}> Update Account </button>
-      </NavLink>
+       {/* <NavLink exact to='/'> */}
+        <button style={{float: 'right'}} onClick={handleUpdateUserClick}> Update Account </button>
+      {/* </NavLink> */}
       
       <NavLink to='/'>
-        <button style={{float: 'right'}} onClick={handleDeleteClick}> DELETE ACCOUNT  </button>
+        <button style={{float: 'right'}} onClick={handleDeleteClick}> Delete Account  </button>
       </NavLink> 
 
       <NavLink to='/'>
-        <button style={{float: 'right'}} onClick={handleLogoutClick}> {user ? user.username : null} | Log Out </button>
+        <button style={{float: 'right'}} onClick={handleLogoutClick}>  Log Out </button>
       </NavLink>
       
     </div>
