@@ -41,29 +41,32 @@ function PostsForm({ errors, posts, setPosts}) {
   }
   
     return (
-      <div className="App" >
+      <div style={{textAlign:'center', marginTop: '40px'}} className="App" >
 
         {errors?errors.map(e => <div>{e}</div>):null}
 
        <form onSubmit={handleSubmitNewPost}>
 
-        <label>
+        {/* <label>
             Image URL (grab a url of your fave pet image!)
           <input type="text" name="image_url" value={image_url} onChange={handleURL} />
         </label>
-        <br/>
+        <br/> */}
 
+    <span>
        <label>
-          Comments
-          <input type="text" name="comment" value={comments} onChange={handleComment} />
+          Comments:
+          <input style={{marginLeft:'10px', }} type="text" name="comment" value={comments} onChange={handleComment} />
         </label>
-        <br/>
+        {/* <br/> */}
+        
         
         {/* <label>
         Likes
           <input type="number" name="likes"  onChange={(e) => setLikes(e.target.value)} />
         </label> */}
-        <button type="submit"> Add New Petsagram Post </button>
+        <button style={{backgroundColor:'teal', marginLeft:'20px'}}type="submit" > Add Comment </button>
+        </span>
        </form>
       </div>
     );
