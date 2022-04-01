@@ -6,6 +6,7 @@ import Posts from "./Posts";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 import UserUpdateForm from "./UserUpdateForm";
+import PostsContainer from "./PostsContainer";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -60,6 +61,7 @@ function App() {
 
         <Route  path="/update" element={<UserUpdateForm user={user} setUser={setUser} errors={errors} />} />
 
+        <Route path="/postscontainer" element={<PostsContainer user={user} posts={posts}  />} />
 
     </Routes>
     

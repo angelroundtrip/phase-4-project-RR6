@@ -5,17 +5,23 @@ import { Card, Image } from "semantic-ui-react";
 function Posts({posts, setPosts, user, errors}) {
   
   console.log(user)
-  console.log(posts)
+  // console.log(posts)
 
-  const postObj = Object.keys(posts)
-  console.log(postObj)
+  const allPosts = posts.map((p) => {
+    return [p.username,p.comments,p.image_url]
+  })
+
+
+
+  // const postObj = Object.values(posts)
+  // console.log(postObj)
 
   // Object.keys(postObj)
   // (key=>{console.log(`${key}:${postObj[key]}`);});
 
-  Object.entries(postObj).forEach(([key, value]) => {
-    console.log(`${key}: ${value}`);
-});
+//   Object.entries(postObj).forEach(([key, value]) => {
+//     console.log(`${key}: ${value}`);
+// });
 
   // posts.forEach(post=>post.values)
 
@@ -33,6 +39,11 @@ function Posts({posts, setPosts, user, errors}) {
        <h3 style={{color:'blue', textAlign:'center'}}>  {user ? user.username : 'Please login!'} </h3> 
 
        <hr></hr>
+       {/* {postObj} */}
+       <Card>
+       {/* <img src={allPosts.comments} alt="image"/ > */}
+       <h1>{allPosts}</h1>
+       </Card>
 
        {user ? <PostsForm  errors={errors} posts={posts} setPosts={setPosts} /> : null}
        
