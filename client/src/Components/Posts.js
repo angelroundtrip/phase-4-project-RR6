@@ -16,6 +16,7 @@ function Posts({posts, setPosts, user, errors}) {
        <h3 style={{color:'blue', textAlign:'center'}}>  {user ? user.username : 'Please login!'} </h3> 
 
        <hr></hr>
+
        <PostsForm  errors={errors} posts={posts} setPosts={setPosts} />
        
        {user ? <Card> <h3 style={{textAlign:'center'}}>@nekolover</h3> <Image  className="center" style={{align:'center'}} src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3 style={{textAlign:'center'}}>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
