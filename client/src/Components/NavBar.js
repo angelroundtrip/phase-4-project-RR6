@@ -1,10 +1,7 @@
 import React from 'react'
-import {NavLink, useNavigate} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-// const API = "http://localhost:3000/users/"
-
-function NavBar({user, setUser, onLogout}) {
-  // const navigate = useNavigate();
+function NavBar({user, setUser}) {
   
   const handleLogoutClick = () => {
     fetch("/logout", 
@@ -16,22 +13,6 @@ function NavBar({user, setUser, onLogout}) {
     });
   }
 
-  // * WORKS, kind of!
-  const handleUpdateUserClick = () => {
-    fetch(`http://localhost:4000/users/${user.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: !user
-      }),
-    })
-      .then((r) => r.json())
-      .then(user => setUser(user));
-  }
-
-  // * WORKS, kind of!
   const handleDeleteClick = () => {
       fetch(`http://localhost:4000/users/${user.id}`,{
         method:"DELETE",
@@ -42,6 +23,7 @@ function NavBar({user, setUser, onLogout}) {
   
   return (
     <div className='navbar'>
+
        <NavLink exact to='/update'>
         <button style={{float: 'right'}} > Update Account </button>
       </NavLink>
@@ -60,4 +42,3 @@ function NavBar({user, setUser, onLogout}) {
 
 
 export default NavBar
-

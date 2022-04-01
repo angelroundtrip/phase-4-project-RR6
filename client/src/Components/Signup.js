@@ -1,7 +1,8 @@
 import React, {useState}  from 'react'
 import {useNavigate} from 'react-router-dom'
 
-function Signup({setUser}) {
+function Signup() {
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
@@ -49,13 +50,11 @@ function Signup({setUser}) {
         <form onSubmit={onSubmit}>
         <label>
           Username
-   
           <input type="text" value={username} onChange={(e) => handleUsername(e)} />
         </label>
         
         <label>
          Password
-    
         <input type="password" value={password} onChange={(e) => handlePassword(e)} />
         </label>
 
@@ -100,7 +99,7 @@ function Signup({setUser}) {
         />
         
           <input type="submit" value="Sign up!" />
-          {/* <button type="submit">Sign up</button> */}
+          
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>

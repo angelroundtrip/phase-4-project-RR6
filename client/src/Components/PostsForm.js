@@ -6,14 +6,12 @@ function PostsForm({ errors, posts, setPosts}) {
   const [comments, setComments] = useState("")
   const [likes, setLikes] = useState (0)
 
-
   function handleURL(e){
     setImageURL(e.target.value)
   }
   function handleComment(e){
     setComments(e.target.value)
   }
-
 
   function handleSubmitNewPost(e){
     e.preventDefault()
@@ -42,16 +40,19 @@ function PostsForm({ errors, posts, setPosts}) {
     
   }
   
-  
     return (
       <div className="App" >
+
         {errors?errors.map(e => <div>{e}</div>):null}
+
        <form onSubmit={handleSubmitNewPost}>
+
         <label>
             Image URL (grab a url of your fave pet image!)
           <input type="text" name="image_url" value={image_url} onChange={handleURL} />
         </label>
         <br/>
+
        <label>
           Comments
           <input type="text" name="comment" value={comments} onChange={handleComment} />

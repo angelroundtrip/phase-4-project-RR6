@@ -1,7 +1,7 @@
 import React, {useState}  from 'react'
-import {useNavigate} from 'react-router-dom'
 
 function UserUpdateForm({user, setUser, errors, setErrors}) {
+
     console.log(user)
     const [username, setUpdatedName] =useState("")
     const [password, setUpdatedPassword]= useState("")
@@ -40,22 +40,21 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
             }
         // setUser(user)
         });
-        
-        
     }
         
     return (
         
-       
         <div className="App" >
             {errors?errors.map(e => <div>{e}</div>):null}
             <form onSubmit={handleSubmitUpdateForm} >
+
                 <h1>Confirm Update</h1>
                 <label>
                 Username
-    
+
                 <input type="text" value={username} onChange={handleUsernameChange} />
                 </label>
+
                 <label>
                     Password
                 <input type="text" value={password} onChange={handlePasswordChange} />
@@ -63,9 +62,11 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
             
             
                 <button type="submit">Submit Changes </button>
+
             </form>
            
         </div>
     )
 }
+
 export default UserUpdateForm;

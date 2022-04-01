@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
+  
   resources :users
-  # resources :sessions
   resources :posts
 
   post '/signup', to: 'users#create'
+  post '/update', to: 'users#update'
   get "/me", to: "users#show"
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  post '/update', to: 'users#update'
-  # get '/authorization', to: 'users#show'
-
-  # get '/home', to: 'posts#show'
-
-  # get'/authorized_user', to: 'users#show'
 
 end

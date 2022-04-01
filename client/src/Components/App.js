@@ -5,19 +5,10 @@ import Login from "./Login";
 import Posts from "./Posts";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
-import LogOut from "./LogOut";
-import PostsContainer from "./PostsContainer";
 import UserUpdateForm from "./UserUpdateForm";
 
-
-// ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
-
-// const API = "http://localhost:3000/users"
-
-// function App({onLogin}) {
 function App() {
   const [user, setUser] = useState(null)
-
 
   useEffect(()=>{
     fetch('/me')
@@ -28,210 +19,44 @@ function App() {
       })
   },[])
  
-  // * NOTE: We need to redirect when a user signs up and logs in
+
   const [posts, setPosts] = useState([])
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const [errors, setErrors] = useState(false)
-
-  
+  const navigate = useNavigate();
 
     useEffect(() => {
       fetch(`/posts`)
       .then((r) => r.json())
       .then(setPosts)
     }, [user])
-    const navigate = useNavigate();
-
-// * WE NEED TO USE THIS or change it, this is why we can create posts when we click on Add New Petsagram post button, but they don't persist
-    function handlePost(obj){
-      fetch('/posts',{
-        method:'POST',
-        headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify(obj)
-      })
-      .then(res => {
-        if(res.ok){
-          res.json()
-          .then(json =>  {
-            setPosts([...posts,json])
-          })
-        } else {
-          res.json()
-          .then(json => {
-          setErrors(Object.entries(json.errors))
-          })
-        }
-      })}
 
       function handleLogout() {
         setUser(null);
       }
 
-    // if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
-    
-    // const deleteAccountClick = (id) => {
-    //   fetch(API + id,{
-    //     method:"DELETE",
-    //   })}
+
   return (
 
   <div className="App">
+
     {user && <NavBar  setUser={setUser} user={user} onLogout={handleLogout} />}
    
-    {/* {user && <NavBar  setUser={setUser} user={user} handleLogOutClick={()=> navigate('/home') } /> } */}
     <Routes>
     
         <Route path="/signup" element={<Signup setUser={setUser} />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
-        {/* <Route path="/logout" element={<LogOut setUser={setUser} navigate={navigate}/>} /> */}
+ 
         <Route path="/" element={<LandingPage/>}/>
-        {/* <Route path="/posts" element={<PostsContainer posts={posts}/>}/> */}
+        
         <Route  path="/posts" element={<Posts errors={errors} user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
+
         <Route  path="/update" element={<UserUpdateForm user={user} setUser={setUser} errors={errors} />} />
-      </Routes>
+
+    </Routes>
+    
   </div>
   );
   }
 
 export default App;
-
-
-
-
-
-// import { useState, useEffect } from "react";
-// import { Routes, Route, useNavigate } from "react-router-dom";
-// import LandingPage from "./LandingPage";
-// import Login from "./Login";
-// import Posts from "./Posts";
-// import NavBar from "./NavBar";
-
-// import Auth from "./Auth";
-
-// // ! NOTE: Code that is commented out is a work in progress. It works, but not as intended yet. DO NOT or change.
-
-// // const API = "http://localhost:3000/users"
-
-// // function App({onLogin}) {
-// function App() {
- 
-//   const [user, setUser] = useState(null);
-
-//   useEffect(() => {
-//     fetch("http://localhost:4000/me").then((response) => {
-//       if (response.ok) {
-//         response.json().then((user) => setUser(user));
-//       }
-//     });
-//   }, []);
-  
-//   function handleLogout() {
-//     setUser(null);
-//   }
-
-//   if (!user) return <Login onLogin={setUser} />;
-
-//   return (
-//     <>
-//     <div className="App">
-//       <NavBar user={user} setUser={setUser} onLogout={handleLogout} />
-//       <Routes>
-//           <Route exact path="*" element={
-//             <LandingPage 
-//               user={user}
-//               />}/>    
-//         </Routes>
-//     </div>
-//     </>
-//   );
-// //   // * NOTE: We need to redirect when a user signs up and logs in
-// //   const [posts, setPosts] = useState('')
-// //   const [isAuthenticated, setIsAuthenticated] = useState(false);
-// //   const [user, setUser] = useState(null);
-// //   const [errors, setErrors] = useState(false)
-// //   let navigate = useNavigate()
-
-// //   useEffect(() => {
-// //     fetch("/authorized_user")
-// //     .then((res) => {
-// //       if(res.ok) {
-// //         res.json()
-// //         .then((user) => {
-// //           console.log(user)
-// //           setIsAuthenticated(true);
-// //           setUser(user);
-// //         })
-// //         .then(()=> {
-// //           fetch('/home')
-// //           .then(res => res.json())
-// //           .then(posts => {
-// //             console.log(posts)
-// //             setPosts(posts)
-// //           });
-// //         })
-// //       }
-// //     });
-
-// //   },[]);
-// //     function handlePost(obj){
-// //       fetch('/posts',{
-// //         method:'POST',
-// //         headers: {'Content-Type': 'application/json'},
-// //         body:JSON.stringify(obj)
-// //       })
-// //       .then(res => {
-// //         if(res.ok){
-// //           res.json()
-// //           .then(json =>  {
-// //             setPosts([...posts,json])
-// //           })
-// //         } else {
-// //           res.json()
-// //           .then(json => {
-// //           setErrors(Object.entries(json.errors))
-// //           })
-// //         }
-// //       })
-// //   }
-
-// //     if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
-
-
-// // function handleLogOutClick(){
-// //   fetch("/logout",{
-// //       method: "DELETE"
-// //   }).then((r) => {
-// //       if(r.ok){
-// //           setUser(null);
-// //       }
-// //   });
-// //   // Navigate to home page after logout and clear history
-// //   navigate ('/')
-// // }
-
-
-// //   return (
-
-// //   <div className="App">
-// //     {/* <NavBar handleLogOutClick={()=> navigate('home') }setIsAuthenticated={setIsAuthenticated}  */}
-   
-// //     {/* setUser={setUser} user={user}/> */}
-// //     <Routes>
-// //         {/* <Route path="/home"
-// //           element={<Posts  handlePost= {handlePost }setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>} />
-
-// //         <Route path="/signup" element={<Auth />}/>
-
-// //         <Route path="/login"/> */}
-        
-// //         <Route path="/" element={<LandingPage/>}/>
-// //       </Routes>
-// //       </div>
-
-  
-// //   );
-// }
-
-// export default App
