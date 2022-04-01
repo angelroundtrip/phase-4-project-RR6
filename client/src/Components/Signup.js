@@ -74,19 +74,19 @@ function Signup({ user, setUser }) {
         <form onSubmit={onSubmit}>
         <label >
           Username:
-          <input style={{color: 'white', marginLeft:'20px'}} type="text" value={username} onChange={(e) => handleUsername(e)} />
+          <input style={{ marginLeft:'20px'}} type="text" value={username} onChange={(e) => handleUsername(e)} />
         </label>
         
         <p></p>
         <label>
          Password:
-        <input style={{color: 'white', marginLeft:'20px'}} type="password" value={password} onChange={(e) => handlePassword(e)} />
+        <input style={{ marginLeft:'20px'}} type="password" value={password} onChange={(e) => handlePassword(e)} />
         </label>
 
         <p></p>
         <label htmlFor="password_confirmation">Confirm Password:</label>
         <input
-        style={{color: 'white', marginLeft:'20px'}}
+        style={{ marginLeft:'20px'}}
         type="password"
         id="password_confirmation"
         value={passwordConfirmation}
@@ -96,7 +96,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="pet_name">Pet Name:</label>
         <input
-          style={{color: 'white', marginLeft:'20px'}}
+          style={{ marginLeft:'20px'}}
           type="text"
           id="pet_name"
           value={petName}
@@ -106,7 +106,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="pet_species">Pet Species:</label>
         <input
-          style={{color: 'white', marginLeft:'20px'}}
+          style={{ marginLeft:'20px'}}
           type="text"
           id="pet_species"
           value={petSpecies}
@@ -116,7 +116,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="bio">Bio:</label>
         <input
-          style={{color: 'white', marginLeft:'20px'}}
+          style={{ marginLeft:'20px'}}
           type="text"
           id="bio"
           value={bio}
@@ -126,7 +126,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="profile_image_url">Profile Image:</label>
         <input
-          style={{color: 'white', marginLeft:'20px'}}
+          style={{ marginLeft:'20px'}}
           type="text"
           id="profile image"
           value={profileImage}
