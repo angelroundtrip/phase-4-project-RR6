@@ -26,11 +26,15 @@ function Login({ setUser }) {
   }
   
   return (
-    <div>
+    
+    <div className="landing">
 
+      <a href='/' style={{fontFamily: 'cursive',fontSize: '200px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</a>
+      
       <form onSubmit={handleSubmit}>
 
-        <label htmlFor="username">Username:</label>
+      <p></p>
+        <label style={{color: 'white', marginRight:'18px'}} htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
@@ -38,7 +42,8 @@ function Login({ setUser }) {
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="password">Password:</label>
+      <p></p>
+        <label style={{color: 'white', marginRight:'20px'}} htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
@@ -46,7 +51,8 @@ function Login({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
           />
 
-        <button type="submit">Login</button>
+      <p></p>
+        <button style={{backgroundColor:'teal', marginLeft:'40%'}} type="submit">Login</button>
        
       </form>
       

@@ -1,6 +1,7 @@
 import React from "react";
 import PostsForm from './PostsForm'
 import { Card, Image } from "semantic-ui-react";
+import { NavLink } from 'react-router-dom';
 
 function Posts({posts, setPosts, user, errors}) {
   
@@ -10,14 +11,14 @@ function Posts({posts, setPosts, user, errors}) {
   return (
     <main>
     
-      <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
+      <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</span>
 
       <hr></hr>
        <h3 style={{color:'blue', textAlign:'center'}}>  {user ? user.username : 'Please login!'} </h3> 
 
        <hr></hr>
 
-       <PostsForm  errors={errors} posts={posts} setPosts={setPosts} />
+       {user ? <PostsForm  errors={errors} posts={posts} setPosts={setPosts} /> : null}
        
        {user ? <Card> <h3 style={{textAlign:'center'}}>@nekolover</h3> <Image  className="center" style={{align:'center'}} src="https://c.files.bbci.co.uk/151AB/production/_111434468_gettyimages-1143489763.jpg"/> <h3 style={{textAlign:'center'}}>Fun fact: The Japanese word for cat is neko</h3></Card> : null} 
        

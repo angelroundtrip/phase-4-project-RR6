@@ -44,24 +44,27 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
         
     return (
         
-        <div className="App" >
+        <div className="landing" >
+
+            <span style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>Petsagram</span>
+
             {errors?errors.map(e => <div>{e}</div>):null}
             <form onSubmit={handleSubmitUpdateForm} >
 
-                <h1>Confirm Update</h1>
-                <label>
+                <h1 style={{color:'white', fontSize:'20px'}}>Confirm Update</h1>
+                <label style={{color:'white', fontSize:'20px'}}>
                 Username
 
                 <input type="text" value={username} onChange={handleUsernameChange} />
                 </label>
 
-                <label>
+                <label style={{color:'white', fontSize:'20px'}}>
                     Password
                 <input type="text" value={password} onChange={handlePasswordChange} />
                 </label>
             
-            
-                <button type="submit">Submit Changes </button>
+                <p></p>
+                <button style={{float: 'right', backgroundColor:'teal'}} type="submit">Submit Changes </button>
 
             </form>
            

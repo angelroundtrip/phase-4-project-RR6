@@ -24,16 +24,16 @@ function NavBar({user, setUser}) {
   return (
     <div className='navbar'>
 
+      <NavLink to='/'>
+        <button style={{float: 'right', backgroundColor:'teal', marginLeft: '10px', marginTop: '40px'}} onClick={handleDeleteClick}> Delete Account  </button>
+      </NavLink> 
+
        <NavLink exact to='/update'>
-        <button style={{float: 'right'}} > Update Account </button>
+        <button style={{float: 'right', backgroundColor:'teal', marginLeft: '10px', marginTop: '40px'}} > Update Account </button>
       </NavLink>
       
       <NavLink to='/'>
-        <button style={{float: 'right'}} onClick={handleDeleteClick}> Delete Account  </button>
-      </NavLink> 
-
-      <NavLink to='/'>
-        <button style={{float: 'right'}} onClick={handleLogoutClick}>  Log Out </button>
+        <button style={{float: 'right', backgroundColor:'teal', marginLeft: '10px', marginTop: '40px'}} onClick={handleLogoutClick}>  Log Out </button>
       </NavLink>
       
     </div>

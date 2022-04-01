@@ -3,7 +3,7 @@ import React from 'react'
 function LandingPage() {
 
   return (
-    <div>
+    <div >
 
       <header className="landing" style={{fontSize: '200px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none'}}>
 

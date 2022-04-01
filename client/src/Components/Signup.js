@@ -1,5 +1,5 @@
 import React, {useState}  from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, NavLink} from 'react-router-dom'
 
 function Signup() {
 
@@ -37,7 +37,7 @@ function Signup() {
         .then(user => {
             console.log(user)
             if (!user.errors)  { 
-              navigate(`/posts`)
+              // navigate(`/posts`)
             } else {
             setErrors(Object.entries(user.errors))
           }
@@ -46,18 +46,24 @@ function Signup() {
       
     return (
         <> 
+         <a href="/" style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</a>
+
         <h1>Sign Up</h1>
+
+        <p></p>
         <form onSubmit={onSubmit}>
         <label>
           Username
           <input type="text" value={username} onChange={(e) => handleUsername(e)} />
         </label>
         
+        <p></p>
         <label>
          Password
         <input type="password" value={password} onChange={(e) => handlePassword(e)} />
         </label>
 
+        <p></p>
         <label htmlFor="password_confirmation">Confirm Password:</label>
         <input
         type="password"
@@ -66,6 +72,7 @@ function Signup() {
         onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
 
+        <p></p>
         <label htmlFor="pet_name">Pet Name:</label>
         <input
           type="text"
@@ -74,6 +81,7 @@ function Signup() {
           onChange={(e) => setPetName(e.target.value)}
         />
 
+        <p></p>
         <label htmlFor="pet_species">Pet Species:</label>
         <input
           type="text"
@@ -82,6 +90,7 @@ function Signup() {
           onChange={(e) => setPetSpecies(e.target.value)}
         />
 
+        <p></p>
         <label htmlFor="bio">Bio:</label>
         <input
           type="text"
@@ -90,6 +99,7 @@ function Signup() {
           onChange={(e) => setBio(e.target.value)}
         />
 
+        <p></p>
         <label htmlFor="profile_image_url">Profile Image:</label>
         <input
           type="text"
@@ -98,8 +108,14 @@ function Signup() {
           onChange={(e) => setProfileImage(e.target.value)}
         />
         
-          <input type="submit" value="Sign up!" />
-          
+          <p></p>
+          <input type="submit" value= "Sign up!" />
+
+          <p></p>
+          <NavLink to='/posts'>
+          <input type="submit" value= "View New Account!" />
+          </NavLink>
+
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>
