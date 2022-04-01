@@ -7,6 +7,23 @@ function Posts({posts, setPosts, user, errors}) {
   console.log(user)
   console.log(posts)
 
+  const postObj = Object.keys(posts)
+  console.log(postObj)
+
+  // Object.keys(postObj)
+  // (key=>{console.log(`${key}:${postObj[key]}`);});
+
+  Object.entries(postObj).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+});
+
+  // posts.forEach(post=>post.values)
+
+  // for (const [key,value] of Object.entries(posts)) {
+  //   console.log(`${key}:${value}`);
+  // }
+  
+
   return (
     <main>
     
