@@ -64,7 +64,9 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
                 </label>
             
                 <p></p>
-                <button style={{float: 'right', backgroundColor:'teal'}} type="submit">Submit Changes </button>
+                <button style={{ backgroundColor:'teal'}} type="submit">Submit Changes </button>
+
+                <button style={{ backgroundColor:'teal'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
 
             </form>
            

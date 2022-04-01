@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-function NavBar({user, setUser}) {
+function NavBar({user, setUser, handleDeleteAccount}) {
   
   const handleLogoutClick = () => {
     fetch("/logout", 
@@ -13,19 +13,19 @@ function NavBar({user, setUser}) {
     });
   }
 
-  const handleDeleteClick = () => {
-      fetch(`http://localhost:4000/users/${user.id}`,{
-        method:"DELETE",
-      })
-      .then((r) => r.json())
-      .then(setUser);
-  }
+  // const handleDeleteClick = () => {
+  //     fetch(`http://localhost:4000/users/${user.id}`,{
+  //       method:"DELETE",
+  //     })
+  //     .then((r) => r.json())
+  //     .then(setUser);
+  // }
   
   return (
     <div className='navbar'>
 
       <NavLink to='/'>
-        <button style={{float: 'right', backgroundColor:'teal', marginLeft: '10px', marginTop: '40px'}} onClick={handleDeleteClick}> Delete Account  </button>
+        <button style={{float: 'right', backgroundColor:'teal', marginLeft: '10px', marginTop: '40px'}} onClick={handleDeleteAccount} > Delete Account  </button>
       </NavLink> 
 
        <NavLink exact to='/update'>

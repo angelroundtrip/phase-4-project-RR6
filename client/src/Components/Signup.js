@@ -1,7 +1,7 @@
 import React, {useState}  from 'react'
 import {useNavigate, NavLink} from 'react-router-dom'
 
-function Signup() {
+function Signup({ user, setUser }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -42,6 +42,24 @@ function Signup() {
             setErrors(Object.entries(user.errors))
           }
         })  
+      }
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        
+        fetch(`/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password}),
+        })
+          .then((r) => r.json())
+          .then((user) => {
+            console.log(user)
+            setUser(user);
+            navigate(`/posts`)
+          })
       }
       
     return (
@@ -112,9 +130,9 @@ function Signup() {
           <input type="submit" value= "Sign up!" />
 
           <p></p>
-          <NavLink to='/posts'>
-          <input type="submit" value= "View New Account!" />
-          </NavLink>
+          <form onSubmit={handleSubmit}>
+          <a href='/posts' type="submit" style={{textDecoration:'none'}}> View New Account! </a>
+          </form>
 
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}

@@ -34,16 +34,21 @@ function App() {
         setUser(null);
       }
 
+      const handleDeleteAccount = () => {
+        fetch(`http://localhost:4000/users/${user.id}`,{
+          method:"DELETE",
+        })
+      }
 
   return (
 
   <div className="App">
 
-    {user && <NavBar  setUser={setUser} user={user} onLogout={handleLogout} />}
+    {user && <NavBar  setUser={setUser} user={user} onLogout={handleLogout} handleDeleteAccount={handleDeleteAccount} />}
    
     <Routes>
     
-        <Route path="/signup" element={<Signup setUser={setUser} />}/>
+        <Route path="/signup" element={<Signup user={user} setUser={setUser} />}/>
 
         <Route path="/login"element={<Login setUser={setUser} navigate={navigate}/>} />
  
@@ -52,6 +57,7 @@ function App() {
         <Route  path="/posts" element={<Posts errors={errors} user={user} setUser={setUser} posts={posts} setPosts={setPosts} />} />
 
         <Route  path="/update" element={<UserUpdateForm user={user} setUser={setUser} errors={errors} />} />
+
 
     </Routes>
     
