@@ -52,22 +52,24 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
             {errors?errors.map(e => <div>{e}</div>):null}
             <form onSubmit={handleSubmitUpdateForm} >
 
-                <h1 style={{color:'white', fontSize:'20px'}}>Confirm Update</h1>
+                {/* <h1 style={{color:'white', fontSize:'20px'}}>Confirm Update</h1> */}
                 <label style={{color:'white', fontSize:'20px'}}>
-                Username
+                Username:
 
-                <input type="text" value={username} onChange={handleUsernameChange} />
+                <input style={{marginRight:'18px'}}type="text" value={username} onChange={handleUsernameChange} />
                 </label>
 
+                <p></p>
+
                 <label style={{color:'white', fontSize:'20px'}}>
-                    Password
+                    Password:
                 <input type="text" value={password} onChange={handlePasswordChange} />
                 </label>
             
                 <p></p>
-                <button style={{ backgroundColor:'teal'}} type="submit">Submit Changes </button>
-
-                <button style={{ backgroundColor:'teal'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
+                <button style={{ backgroundColor:'teal', marginLeft:'15%'}} type="submit">Submit Changes </button>
+                <p></p>
+                <button style={{ backgroundColor:'teal', marginLeft:'25%'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
 
             </form>
            
