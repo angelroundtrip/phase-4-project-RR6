@@ -64,27 +64,29 @@ function Signup({ user, setUser }) {
       }
       
     return (
-        <> 
-         <a href="/" style={{fontFamily: 'cursive',fontSize: '50px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</a>
+        <div className="landing" style={{color:'white'}}> 
 
-        <h1>Sign Up</h1>
+         <a href='/' style={{fontFamily: 'cursive',fontSize: '200px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</a>
+
+        {/* <h1>Sign Up</h1> */}
 
         <p></p>
         <form onSubmit={onSubmit}>
-        <label>
-          Username
-          <input type="text" value={username} onChange={(e) => handleUsername(e)} />
+        <label >
+          Username:
+          <input style={{color: 'white', marginLeft:'20px'}} type="text" value={username} onChange={(e) => handleUsername(e)} />
         </label>
         
         <p></p>
         <label>
-         Password
-        <input type="password" value={password} onChange={(e) => handlePassword(e)} />
+         Password:
+        <input style={{color: 'white', marginLeft:'20px'}} type="password" value={password} onChange={(e) => handlePassword(e)} />
         </label>
 
         <p></p>
         <label htmlFor="password_confirmation">Confirm Password:</label>
         <input
+        style={{color: 'white', marginLeft:'20px'}}
         type="password"
         id="password_confirmation"
         value={passwordConfirmation}
@@ -94,6 +96,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="pet_name">Pet Name:</label>
         <input
+          style={{color: 'white', marginLeft:'20px'}}
           type="text"
           id="pet_name"
           value={petName}
@@ -103,6 +106,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="pet_species">Pet Species:</label>
         <input
+          style={{color: 'white', marginLeft:'20px'}}
           type="text"
           id="pet_species"
           value={petSpecies}
@@ -112,6 +116,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="bio">Bio:</label>
         <input
+          style={{color: 'white', marginLeft:'20px'}}
           type="text"
           id="bio"
           value={bio}
@@ -121,6 +126,7 @@ function Signup({ user, setUser }) {
         <p></p>
         <label htmlFor="profile_image_url">Profile Image:</label>
         <input
+          style={{color: 'white', marginLeft:'20px'}}
           type="text"
           id="profile image"
           value={profileImage}
@@ -128,14 +134,14 @@ function Signup({ user, setUser }) {
         />
         
         <p></p>
-        <button style={{backgroundColor:'teal'}} type="submit">Signup</button>
+        <button style={{backgroundColor:'teal', marginLeft:'30%'}} type="submit">Signup</button>
 
           <p></p>
-        <button style={{ backgroundColor:'teal'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
+        <button style={{ backgroundColor:'teal', marginLeft:'25%'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
 
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
-        </>
+        </div>
     )
 }
 export default Signup;
