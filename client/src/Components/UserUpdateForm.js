@@ -34,9 +34,10 @@ function UserUpdateForm({user, setUser, errors, setErrors}) {
         .then(r => {
             if(r.ok){
                 r.json().then(setUser)
-                alert("Updates successful")
+                alert("Updates successful, click view posts!")
             } else {
                 r.json().then(e => setErrors(Object.entries(e.error).flat()))
+                alert("Unsuccessful")
             }
         // setUser(user)
         });

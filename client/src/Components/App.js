@@ -38,6 +38,8 @@ function App() {
         fetch(`http://localhost:4000/users/${user.id}`,{
           method:"DELETE",
         })
+        setUser(null);
+        alert("User deleted successfully")
       }
 
   return (

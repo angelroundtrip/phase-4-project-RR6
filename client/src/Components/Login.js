@@ -5,6 +5,7 @@ function Login({ setUser }) {
   
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([])
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -17,17 +18,22 @@ function Login({ setUser }) {
       },
       body: JSON.stringify({ username, password}),
     })
-      .then((r) => r.json())
-      .then((user) => {
+    .then(res => res.json())
+    .then(user => {
         console.log(user)
-        setUser(user);
-        navigate(`/posts`)
-      })
+        if (!user.errors)  { 
+          alert("Login successful, click on view posts!")
+          // navigate(`/posts`)
+        } else {
+        setErrors(Object.entries(user.errors))
+        alert("Incorrect login")
+      }
+    })  
   }
   
   return (
     
-    <div className="landing">
+    <div className="landing" >
 
       <a href='/' style={{fontFamily: 'cursive',fontSize: '200px', fontWeight: 'bold', color: 'hotpink', textDecoration: 'none' }}>Petsagram</a>
       
@@ -53,6 +59,9 @@ function Login({ setUser }) {
 
       <p></p>
         <button style={{backgroundColor:'teal', marginLeft:'40%'}} type="submit">Login</button>
+
+      <p></p>
+        <button style={{ backgroundColor:'teal', marginLeft:'30%'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
        
       </form>
       

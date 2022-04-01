@@ -38,6 +38,7 @@ function Signup({ user, setUser }) {
             console.log(user)
             if (!user.errors)  { 
               // navigate(`/posts`)
+              alert("Signup successful! Click on view posts!")
             } else {
             setErrors(Object.entries(user.errors))
           }
@@ -126,13 +127,11 @@ function Signup({ user, setUser }) {
           onChange={(e) => setProfileImage(e.target.value)}
         />
         
-          <p></p>
-          <input type="submit" value= "Sign up!" />
+        <p></p>
+        <button style={{backgroundColor:'teal'}} type="submit">Signup</button>
 
           <p></p>
-          <form onSubmit={handleSubmit}>
-          <a href='/posts' type="submit" style={{textDecoration:'none'}}> View New Account! </a>
-          </form>
+        <button style={{ backgroundColor:'teal'}}><a style={{color:'white', textDecoration: 'none'}}href='/posts' type="submit"> View Posts </a> </button>
 
         </form>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
